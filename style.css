@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
 body {
     background-color: rgb(255, 255, 255);
     display: flex;
@@ -51,6 +53,7 @@ body {
     left: 37%;
     text-align: center;
     color: white;
+    font-family: 'Silkscreen', sans-serif;
 }
 
 #player-health {
@@ -59,6 +62,7 @@ body {
     height: 20px;
     width: 50vw;
     color: white;
+    font-family: 'Silkscreen', sans-serif;
 }
 
 #submit {
