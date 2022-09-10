@@ -46,7 +46,15 @@ const player = {
 
 const render = () => {
     playerHealth.style.background = `linear-gradient(90deg, rgba(0,196,255,1) 0%, rgba(100,0,255,1) ${player.health}%, rgba(0,0,60,1) ${player.health}%)`;
+    playerHealth.innerText = `${player.health}%`;
     compHealth.style.background = `linear-gradient(90deg, rgba(255,164,0,1) 0%, rgba(255,0,0,1) ${computer.health}%, rgba(60,0,0,1) ${computer.health}%)`;
+    compHealth.innerText = `${computer.health}%`;
+
+    if (computer.health === 0) {
+
+    } else if (player.health === 0) {
+
+    }
 }
 
 // Function for comp to choose a note.
