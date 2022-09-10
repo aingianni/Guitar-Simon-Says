@@ -1,3 +1,16 @@
 body {
     background-color: grey;
 }
+
+#fretboard {
+    display: flex;
+}
+
+.frets {
+    display: flex;
+    flex-direction: column;
+}
+
+.notes {
+    width: 50px;
+}
