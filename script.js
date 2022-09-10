@@ -1,4 +1,8 @@
 const guitarNoteBtns = document.querySelectorAll('.notes');
+const compChoiceBtn = document.getElementById('comp-choice-btn');
+const submitBtn = document.getElementById('submit');
+const playerHealth = document.getElementById('player-health');
+const compHealth = document.getElementById('comp-health');
 
 const guitarNotesLayout = [
     ['E4', 'F4', 'Gb4', 'G4', 'Ab4', 'A4', 'Bb4', 'B4', 'C5', 'Db5', 'D5', 'Eb5', 'E5'],
@@ -11,9 +15,9 @@ const guitarNotesLayout = [
 
 guitarNoteBtns.forEach(btn => {
     btn.addEventListener('click', (evt) => {
-        console.log(evt.target.id);
         const audio = new Audio(`guitar-notes/${evt.target.id}.mp3`);
         audio.play();
+        playerChoice = evt.target.id;
     });
 });
 
@@ -26,6 +30,7 @@ guitarNoteBtns.forEach(btn => {
 // Gloabal variables for compare.
 let playerChoice = null;
 let compChoice = null;
+let playerTurn = false;
 
 // Create two basic objects, one for player and one for computer.
 
@@ -40,13 +45,40 @@ const player = {
 // Need render function to update the page.
 
 const render = () => {
-
+    playerHealth.style.background = `linear-gradient(90deg, rgba(0,196,255,1) 0%, rgba(100,0,255,1) ${player.health}%, rgba(0,0,60,1) ${player.health}%)`;
+    compHealth.style.background = `linear-gradient(90deg, rgba(255,164,0,1) 0%, rgba(255,0,0,1) ${computer.health}%, rgba(60,0,0,1) ${computer.health}%)`;
 }
 
 // Function for comp to choose a note.
 
 const computerTurn = () => {
-    if (!player) {
-        
+    if (!playerTurn) {
+        let randomString = Math.floor(Math.random() * 6);
+        let randomNote = Math.floor(Math.random() * 13);
+        compChoice = guitarNotesLayout[randomString][randomNote];
+        playerTurn = true;
     }
 }
+
+setInterval(computerTurn, 1000);
+
+compChoiceBtn.addEventListener('click', () => {
+    const audio = new Audio(`guitar-notes/${compChoice}.mp3`);
+    audio.play();
+});
+
+// Sumbit button, will be the compare function. This is how we will determine the winner of the round.
+
+const compareChoices = () => {
+    if (compChoice === playerChoice) {
+        computer.health -= 10;
+    } else {
+        player.health -= 10;
+    }
+    playerTurn = false;
+}
+
+submitBtn.addEventListener('click', (evt) => {
+    compareChoices();
+    render();
+})

@@ -30,19 +30,17 @@ body {
 }
 
 #comp-health {
-    background-color: rgb(255, 0, 0);
+    background: linear-gradient(90deg, rgba(255,164,0,1) 0%, rgba(255,0,0,1) 100%, rgba(60,0,0,1) 100%);
     border-radius: 5px;
     height: 20px;
     width: 25vw;
-    z-index: 1s;
 }
 
-#robot {
-
-}
-
-#robot > img {
-    height: 35vh;
+#player-health {
+    background: linear-gradient(90deg, rgba(0,196,255,1) 0%, rgba(100,0,255,1) 100%, rgba(0,0,60,1) 100%);
+    border-radius: 0 0 5px 5px;
+    height: 20px;
+    width: 50vw;
 }
 
 #fretboard {
