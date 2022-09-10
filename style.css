@@ -19,10 +19,30 @@ body {
 }
 
 #display-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     height: 50vh;
     width: 50vw;
     border-radius: 10px;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+#comp-health {
+    background-color: rgb(255, 0, 0);
+    border-radius: 5px;
+    height: 20px;
+    width: 25vw;
+    z-index: 1s;
+}
+
+#robot {
+
+}
+
+#robot > img {
+    height: 35vh;
 }
 
 #fretboard {

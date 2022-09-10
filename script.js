@@ -22,3 +22,31 @@ guitarNoteBtns.forEach(btn => {
 // A successful note match will result in the computers health going down, wheres a miss will knock down the players health.
 // First round the notes are visible on the buttons.
 // Second round the notes will dissapear from the innertext of the button.
+
+// Gloabal variables for compare.
+let playerChoice = null;
+let compChoice = null;
+
+// Create two basic objects, one for player and one for computer.
+
+const computer = {
+    health: 100,
+}
+
+const player = {
+    health: 100,
+}
+
+// Need render function to update the page.
+
+const render = () => {
+
+}
+
+// Function for comp to choose a note.
+
+const computerTurn = () => {
+    if (!player) {
+        
+    }
+}
