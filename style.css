@@ -43,14 +43,44 @@ body {
     width: 6vw;
 }
 
+#third-fret {
+    background-image: url('images/guitar-inlay.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 #fourth-fret, #fifth-fret, #sixth-fret {
     width: 5vw;
+}
+
+#fifth-fret {
+    background-image: url('images/guitar-inlay.png');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #seventh-fret, #eighth-fret, #ninth-fret {
     width: 4vw;
 }
 
+#seventh-fret {
+    background-image: url('images/guitar-inlay.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#ninth-fret {
+    background-image: url('images/guitar-inlay.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 #tenth-fret, #eleventh-fret, #twelfth-fret {
     width: 3vw;
+}
+
+#twelfth-fret {
+    background-image: url('images/guitar-inlay-double.png');
+    background-repeat: no-repeat;
+    background-position: center;
 }
