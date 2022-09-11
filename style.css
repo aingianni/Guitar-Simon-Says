@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
     background-color: rgb(255, 255, 255);
@@ -21,11 +22,8 @@ body {
 }
 
 #display-content {
-    /* visibility: hidden; */
-    /* background-image: url('images/1027_Guitar_Tumbler2_Acoustic.png');
-    background-repeat: no-repeat;
-    background-position: center; */
     display: flex;
+    background-color: white;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -39,7 +37,6 @@ body {
 }
 
 #player-stats {
-    /* visibility: hidden; */
     text-align: center;
 }
 
@@ -140,10 +137,70 @@ body {
     transition: all 500ms;
 }
 
+.tut-modal {
+    background-color: rgb(20, 76, 205);
+    color: white;
+    padding: 10px;
+    height: 15vh;
+    width: 20vw;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    font-family: 'Roboto', sans-serif;
+    z-index: 1;
+}
+
+.modal-template {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+#comp-health-tut {
+    visibility: hidden;
+    position: absolute;
+    top: 4%;
+    left: 30%;
+}
+
+#player-health-tut {
+    visibility: hidden;
+    position: absolute;
+    bottom: 5%;
+    right: 23%;
+}
+
+#fretboard-tut {
+    visibility: hidden;
+    position: absolute;
+    bottom: 46%;
+    right: 18%;
+}
+
+#comp-note-tut {
+    visibility: hidden;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+}
+
 /* Indivual frets styling below */
 
 #open-fret {
     background-color: white;
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+    border: none;
+    border-right: solid black 15px;
+}
+
+#open-fret > .note-container {
+    width: 75%;
 }
 
 #open-fret, #first-fret, #second-fret, #third-fret {
@@ -190,4 +247,18 @@ body {
     background-image: url('images/guitar-inlay-double.png');
     background-repeat: no-repeat;
     background-position: center;
+}
+
+/* Some keyframes */
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgb(0, 225, 255);
+    }
+    50% {
+        box-shadow: 0 0 0 20px rgba(0, 85, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 85, 255, 0);
+    }
 }
