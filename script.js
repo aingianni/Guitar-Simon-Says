@@ -141,7 +141,7 @@ const computerTurn = () => {
 
 setInterval(computerTurn, 100);
 
-compChoiceBtn.addEventListener('click', () => {
+compChoiceBtn.addEventListener('mouseover', () => {
     const audio = new Audio(`${guitarNotes}/${compChoice}.mp3`);
     audio.play();
 });
@@ -161,6 +161,20 @@ submitBtn.addEventListener('click', (evt) => {
     compareChoices();
     render();
 })
+
+// Event listeners to toggle the acoustic and distortion settings.
+
+document.getElementById('acoustic').addEventListener('click', (evt) => {
+    guitarNotes = 'acoustic-guitar-notes';
+    document.querySelector('#display-content > img').src = 'images/1027_Guitar_Tumbler2_Acoustic.png';
+    compChoiceBtn.style.top = '25%';
+});
+
+document.getElementById('distortion').addEventListener('click', (evt) => {
+    guitarNotes = 'distortion-guitar-notes';
+    document.querySelector('#display-content > img').src = 'images/1027_Guitar_Tumbler2_Electric.png';
+    compChoiceBtn.style.top = '12%';
+});
 
 // Function to reset the game
 

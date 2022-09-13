@@ -11,6 +11,18 @@ body {
     margin: 0 auto;
 }
 
+#acoustic {
+    position: absolute;
+    left: 20%;
+    top: 5%;
+}
+
+#distortion {
+    position: absolute;
+    left: 20%;
+    top: 10%;
+}
+
 #main-container {
     background-color: white;
     display: flex;
@@ -87,21 +99,18 @@ body {
 }
 
 #comp-choice-btn {
-    height: 18vh;
-    width: 12vw;
-    border-radius: 90px;
+    height: 13vh;
+    width: 40vw;
     position: absolute;
     background-color: rgba(0, 0, 0, 0);
     border: none;
     outline: none;
-    top: 22%;
-    left: 41%;
+    top: 25%;
+    left: 30%;
 }
 
 #comp-choice-btn:hover {
-    background-color: rgba(0, 0, 0, 0.481);
     cursor: pointer;
-    transition: all 500ms
 }
 
 #fretboard {
@@ -152,6 +161,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .modal-template {
