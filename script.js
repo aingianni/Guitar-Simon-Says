@@ -69,7 +69,7 @@ const render = () => {
         document.getElementById('round-2').addEventListener('click', (evt) => {
             currentRound++;
             player.health = 100;
-            computer.health = 10;
+            computer.health = 100;
             modal.style.display = 'none';
             modalBox.style.visibility = 'hidden';
             guitarNoteBtns.forEach(btn => {
@@ -171,7 +171,7 @@ document.getElementById('acoustic').addEventListener('click', (evt) => {
 });
 
 document.getElementById('distortion').addEventListener('click', (evt) => {
-    guitarNotes = 'distortion-guitar-notes';
+    guitarNotes = 'electric-guitar-notes';
     document.querySelector('#display-content > img').src = 'images/1027_Guitar_Tumbler2_Electric.png';
     compChoiceBtn.style.top = '12%';
 });
