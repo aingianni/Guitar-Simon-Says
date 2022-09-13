@@ -24,6 +24,10 @@ guitarNoteBtns.forEach(btn => {
         const audio = new Audio(`${guitarNotes}/${evt.target.id}.mp3`);
         audio.play();
         playerChoice = evt.target.id;
+        if (currentRound === 3) {
+            compareChoices();
+            render();
+        }
     });
 });
 
@@ -37,7 +41,7 @@ let currentRound = 1;
 // Create two basic objects, one for player and one for computer.
 
 const computer = {
-    health: 100,
+    health: 10,
 }
 
 const player = {
@@ -64,7 +68,7 @@ const render = () => {
         document.getElementById('round-2').addEventListener('click', (evt) => {
             currentRound++;
             player.health = 100;
-            computer.health = 100;
+            computer.health = 10;
             modal.style.display = 'none';
             modalBox.style.display = 'none';
             guitarNoteBtns.forEach(btn => {
@@ -76,7 +80,23 @@ const render = () => {
         })
     // Advance to round 3.
     } else if (computer.health === 0 && currentRound === 2) {
-
+        modal.style.display = 'block';
+        modalBox.style.display = 'block';
+        modalBox.innerHTML = `
+        Okay, you're pretty great, but how confident are you?
+        <br>
+        <button id='round-2' class='main-btn-style'>Click here for the final challenge.</button>
+        `;
+        document.getElementById('round-2').addEventListener('click', (evt) => {
+            currentRound++;
+            player.health = 100;
+            computer.health = 100;
+            modal.style.display = 'none';
+            modalBox.style.display = 'none';
+            submitBtn.style.display = 'none';
+            computerTurn();
+            render();
+        })
     } else if (player.health === 0) {
         modal.style.display = 'block';
         modalBox.style.display = 'block';
