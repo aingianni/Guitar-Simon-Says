@@ -8,6 +8,7 @@ const tutCompHealth = document.getElementById('comp-health-tut');
 const tutFretboard = document.getElementById('fretboard-tut');
 const tutCompNote = document.getElementById('comp-note-tut');
 const modal = document.getElementById('modal');
+const modalBox = document.getElementById('display-text')
 
 const guitarNotesLayout = [
     ['E4', 'F4', 'Gb4', 'G4', 'Ab4', 'A4', 'Bb4', 'B4', 'C5', 'Db5', 'D5', 'Eb5', 'E5'],
@@ -20,7 +21,7 @@ const guitarNotesLayout = [
 
 guitarNoteBtns.forEach(btn => {
     btn.addEventListener('click', (evt) => {
-        const audio = new Audio(`guitar-notes/${evt.target.id}.mp3`);
+        const audio = new Audio(`${guitarNotes}/${evt.target.id}.mp3`);
         audio.play();
         playerChoice = evt.target.id;
     });
@@ -30,6 +31,8 @@ guitarNoteBtns.forEach(btn => {
 let playerChoice = null;
 let compChoice = null;
 let playerTurn = false;
+let guitarNotes = 'acoustic-guitar-notes';
+let currentRound = 1;
 
 // Create two basic objects, one for player and one for computer.
 
@@ -49,10 +52,38 @@ const render = () => {
     compHealth.style.background = `linear-gradient(90deg, rgba(255,164,0,1) 0%, rgba(255,0,0,1) ${computer.health}%, rgba(60,0,0,1) ${computer.health}%)`;
     compHealth.innerText = `${computer.health}%`;
 
-    if (computer.health === 0) {
+    // Advance to round 2.
+    if (computer.health === 0 && currentRound === 1) {
+        modal.style.display = 'block';
+        modalBox.style.display = 'block';
+        modalBox.innerHTML = `
+        You're pretty good, but could you be better?
+        <br>
+        <button id='round-2' class='main-btn-style'>Click here for the next challenge.</button>
+        `;
+        document.getElementById('round-2').addEventListener('click', (evt) => {
+            currentRound++;
+            player.health = 100;
+            computer.health = 100;
+            modal.style.display = 'none';
+            modalBox.style.display = 'none';
+            guitarNoteBtns.forEach(btn => {
+                btn.innerText = '';
+                btn.style.height = '8px';
+            })
+            computerTurn();
+            render();
+        })
+    // Advance to round 3.
+    } else if (computer.health === 0 && currentRound === 2) {
 
     } else if (player.health === 0) {
-
+        modal.style.display = 'block';
+        modalBox.style.display = 'block';
+        modalBox.innerHTML = `
+        Keep trying, you're getting better!
+        <button id='reset' class='main-btn-style'>Reset</button>
+        `;
     }
 }
 
@@ -67,10 +98,10 @@ const computerTurn = () => {
     }
 }
 
-setInterval(computerTurn, 1000);
+setInterval(computerTurn, 100);
 
 compChoiceBtn.addEventListener('click', () => {
-    const audio = new Audio(`guitar-notes/${compChoice}.mp3`);
+    const audio = new Audio(`${guitarNotes}/${compChoice}.mp3`);
     audio.play();
 });
 
@@ -99,7 +130,7 @@ const openTut = () => {
     document.getElementById('fretboard').style.animation = 'pulse 2s infinite';
 }
 
-setTimeout(openTut, 500);
+setTimeout(openTut, 100);
 
 tutFretboard.addEventListener('click', () => {
     document.getElementById('fretboard').style.zIndex = '0';
