@@ -59,9 +59,10 @@ const render = () => {
     // Advance to round 2.
     if (computer.health === 0 && currentRound === 1) {
         modal.style.display = 'block';
-        modalBox.style.display = 'block';
+        modalBox.style.visibility = 'visible';
         modalBox.innerHTML = `
         You're pretty good, but could you be better?
+        <br>
         <br>
         <button id='round-2' class='main-btn-style'>Click here for the next challenge.</button>
         `;
@@ -70,7 +71,7 @@ const render = () => {
             player.health = 100;
             computer.health = 10;
             modal.style.display = 'none';
-            modalBox.style.display = 'none';
+            modalBox.style.visibility = 'hidden';
             guitarNoteBtns.forEach(btn => {
                 btn.innerText = '';
                 btn.style.height = '8px';
@@ -81,9 +82,10 @@ const render = () => {
     // Advance to round 3.
     } else if (computer.health === 0 && currentRound === 2) {
         modal.style.display = 'block';
-        modalBox.style.display = 'block';
+        modalBox.style.visibility = 'visible';
         modalBox.innerHTML = `
         Okay, you're pretty great, but how confident are you?
+        <br>
         <br>
         <button id='round-2' class='main-btn-style'>Click here for the final challenge.</button>
         `;
@@ -92,32 +94,36 @@ const render = () => {
             player.health = 100;
             computer.health = 100;
             modal.style.display = 'none';
-            modalBox.style.display = 'none';
+            modalBox.style.visibility = 'hidden';
             submitBtn.style.display = 'none';
             computerTurn();
             render();
         });
-    } else if (player.health === 0) {
+    // If player successfully completes round 3.
+    } else if (computer.health === 0 && currentRound === 3) { 
         modal.style.display = 'block';
-        modalBox.style.display = 'block';
+        modalBox.style.visibility = 'visible';
         modalBox.innerHTML = `
-        Keep trying, you're getting better!
+        You're a guitar master!!!
+        <br>
         <br>
         <button id='reset' class='main-btn-style'>Reset</button>
         `;
         document.getElementById('reset').addEventListener('click', (evt) => {
-            currentRound = 1;
-            player.health = 100;
-            computer.health = 100;
-            modal.style.display = 'none';
-            modalBox.style.display = 'none';
-            submitBtn.style.display = 'none';
-            guitarNoteBtns.forEach(btn => {
-                btn.innerHTML = btn.id;
-                btn.style.height = '17px';
-            });
-            computerTurn();
-            render();
+            reset();
+        });
+    // If player loses.
+    } else if (player.health === 0) {
+        modal.style.display = 'block';
+        modalBox.style.visibility = 'visible';
+        modalBox.innerHTML = `
+        Keep trying, you're getting better!
+        <br>
+        <br>
+        <button id='reset' class='main-btn-style'>Reset</button>
+        `;
+        document.getElementById('reset').addEventListener('click', (evt) => {
+            reset();
         });
     }
 }
@@ -155,6 +161,23 @@ submitBtn.addEventListener('click', (evt) => {
     compareChoices();
     render();
 })
+
+// Function to reset the game
+
+const reset = () => {
+    currentRound = 1;
+    player.health = 100;
+    computer.health = 100;
+    modal.style.display = 'none';
+    modalBox.style.visibility = 'hidden';
+    submitBtn.style.display = 'block';
+    guitarNoteBtns.forEach(btn => {
+        btn.innerHTML = btn.id;
+       btn.style.height = '17px';
+    });
+    computerTurn();
+    render();
+}
 
 // Tutorial modals, these will run at the start of the page and indivually be clicked through.
 
