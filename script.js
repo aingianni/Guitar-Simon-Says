@@ -74,10 +74,10 @@ const render = () => {
             guitarNoteBtns.forEach(btn => {
                 btn.innerText = '';
                 btn.style.height = '8px';
-            })
+            });
             computerTurn();
             render();
-        })
+        });
     // Advance to round 3.
     } else if (computer.health === 0 && currentRound === 2) {
         modal.style.display = 'block';
@@ -96,14 +96,29 @@ const render = () => {
             submitBtn.style.display = 'none';
             computerTurn();
             render();
-        })
+        });
     } else if (player.health === 0) {
         modal.style.display = 'block';
         modalBox.style.display = 'block';
         modalBox.innerHTML = `
         Keep trying, you're getting better!
+        <br>
         <button id='reset' class='main-btn-style'>Reset</button>
         `;
+        document.getElementById('reset').addEventListener('click', (evt) => {
+            currentRound = 1;
+            player.health = 100;
+            computer.health = 100;
+            modal.style.display = 'none';
+            modalBox.style.display = 'none';
+            submitBtn.style.display = 'none';
+            guitarNoteBtns.forEach(btn => {
+                btn.innerHTML = btn.id;
+                btn.style.height = '17px';
+            });
+            computerTurn();
+            render();
+        });
     }
 }
 
