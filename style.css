@@ -9,6 +9,7 @@
 
 body {
     background: rgb(247, 247, 247);
+    background-image: url('images/background-test.jpg');
     display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -41,7 +42,7 @@ body {
 	justify-content: center;
 	align-items: center;
     border-radius: 0px 0px 10px 10px;
-    box-shadow: var(--main-box-light) 0px 48px 100px 0px;
+    box-shadow: rgba(17, 12, 46, 0.358) 0px 48px 100px 0px;
     padding: 10px;
 }
 
@@ -207,6 +208,9 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'Great Vibes', sans-serif;
+    background-image: url('images/modal-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #comp-health-tut {

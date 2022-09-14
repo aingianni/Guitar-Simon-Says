@@ -41,7 +41,7 @@ let currentRound = 1;
 // Create two basic objects, one for player and one for computer.
 
 const computer = {
-    health: 100,
+    health: 10,
 }
 
 const player = {
