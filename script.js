@@ -141,7 +141,7 @@ const computerTurn = () => {
 
 setInterval(computerTurn, 100);
 
-compChoiceBtn.addEventListener('mouseover', () => {
+compChoiceBtn.addEventListener('click', () => {
     const audio = new Audio(`${guitarNotes}/${compChoice}.mp3`);
     audio.play();
 });
