@@ -41,7 +41,7 @@ let currentRound = 1;
 // Create two basic objects, one for player and one for computer.
 
 const computer = {
-    health: 10,
+    health: 100,
 }
 
 const player = {
@@ -170,9 +170,21 @@ document.getElementById('acoustic').addEventListener('click', (evt) => {
     compChoiceBtn.style.top = '25%';
 });
 
-document.getElementById('distortion').addEventListener('click', (evt) => {
+document.getElementById('classical').addEventListener('click', (evt) => {
+    guitarNotes = 'classical-guitar-notes';
+    document.querySelector('#display-content > img').src = 'images/1027_Guitar_Tumbler_Acoustic_2Col_All.png';
+    compChoiceBtn.style.top = '11%';
+});
+
+document.getElementById('muted').addEventListener('click', (evt) => {
     guitarNotes = 'electric-guitar-notes';
     document.querySelector('#display-content > img').src = 'images/1027_Guitar_Tumbler2_Electric.png';
+    compChoiceBtn.style.top = '12%';
+});
+
+document.getElementById('clean').addEventListener('click', (evt) => {
+    guitarNotes = 'electric-clean-guitar-notes';
+    document.querySelector('#display-content > img').src = 'images/1027_Guitar_Tumbler_Electric_2Col_All.png';
     compChoiceBtn.style.top = '12%';
 });
 

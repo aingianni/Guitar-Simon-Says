@@ -24,14 +24,28 @@ body {
     top: 5%;
 }
 
-#distortion {
+#classical {
     position: absolute;
     width: 80px;
     left: 19%;
     top: 10%;
 }
 
-#acoustic:hover, #distortion:hover {
+#muted {
+    position: absolute;
+    width: 80px;
+    left: 19%;
+    top: 15%;
+}
+
+#clean {
+    position: absolute;
+    width: 80px;
+    left: 19%;
+    top: 20%;
+}
+
+#acoustic:hover, #classical:hover, #muted:hover, #clean:hover {
     left: 19.5%
 }
 
