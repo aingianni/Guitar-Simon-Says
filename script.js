@@ -167,24 +167,56 @@ submitBtn.addEventListener('click', (evt) => {
 document.getElementById('acoustic').addEventListener('click', (evt) => {
     guitarNotes = 'acoustic-guitar-notes';
     document.querySelector('#display-content > img').src = 'images/1027_Guitar_Tumbler2_Acoustic.png';
+    // document.getElementById('acoustic').classList.toggle('clicked');
+    // document.getElementById('classical').classList.toggle('clicked');
+    // document.getElementById('muted').classList.toggle('clicked');
+    // document.getElementById('clean').classList.toggle('clicked');
+    document.querySelectorAll('.amp').forEach(btn => {
+        if (btn == evt.target) {
+            evt.target.classList.add('clicked');
+        } else {
+            btn.classList.remove('clicked');
+        }
+    });
     compChoiceBtn.style.top = '25%';
 });
 
 document.getElementById('classical').addEventListener('click', (evt) => {
     guitarNotes = 'classical-guitar-notes';
     document.querySelector('#display-content > img').src = 'images/1027_Guitar_Tumbler_Acoustic_2Col_All.png';
+    document.querySelectorAll('.amp').forEach(btn => {
+        if (btn == evt.target) {
+            evt.target.classList.add('clicked');
+        } else {
+            btn.classList.remove('clicked');
+        }
+    });
     compChoiceBtn.style.top = '11%';
 });
 
 document.getElementById('muted').addEventListener('click', (evt) => {
     guitarNotes = 'electric-guitar-notes';
     document.querySelector('#display-content > img').src = 'images/1027_Guitar_Tumbler2_Electric.png';
+    document.querySelectorAll('.amp').forEach(btn => {
+        if (btn == evt.target) {
+            evt.target.classList.add('clicked');
+        } else {
+            btn.classList.remove('clicked');
+        }
+    });
     compChoiceBtn.style.top = '12%';
 });
 
 document.getElementById('clean').addEventListener('click', (evt) => {
     guitarNotes = 'electric-clean-guitar-notes';
     document.querySelector('#display-content > img').src = 'images/1027_Guitar_Tumbler_Electric_2Col_All.png';
+    document.querySelectorAll('.amp').forEach(btn => {
+        if (btn == evt.target) {
+            evt.target.classList.add('clicked');
+        } else {
+            btn.classList.remove('clicked');
+        }
+    });
     compChoiceBtn.style.top = '12%';
 });
 
