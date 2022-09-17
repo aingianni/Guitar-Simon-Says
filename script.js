@@ -8,7 +8,9 @@ const tutCompHealth = document.getElementById('comp-health-tut');
 const tutFretboard = document.getElementById('fretboard-tut');
 const tutCompNote = document.getElementById('comp-note-tut');
 const modal = document.getElementById('modal');
-const modalBox = document.getElementById('display-text')
+const modalBox = document.getElementById('display-text');
+const darkBtn = document.getElementById('toggle-theme');
+const bodyBg = document.querySelector('body');
 
 const guitarNotesLayout = [
     ['E4', 'F4', 'Gb4', 'G4', 'Ab4', 'A4', 'Bb4', 'B4', 'C5', 'Db5', 'D5', 'Eb5', 'E5'],
@@ -37,6 +39,7 @@ let compChoice = null;
 let playerTurn = false;
 let guitarNotes = 'acoustic-guitar-notes';
 let currentRound = 1;
+let darkMode = false;
 
 // Create two basic objects, one for player and one for computer.
 
@@ -161,6 +164,20 @@ submitBtn.addEventListener('click', (evt) => {
     compareChoices();
     render();
 })
+
+// Event Listener for dark button.
+
+darkBtn.addEventListener('click', (evt) => {
+    if (!darkMode) {
+        bodyBg.style.backgroundImage = `url('images/background-dark.jpg')`;
+        darkMode = true;
+        darkBtn.classList.add('clicked');
+    } else {
+        bodyBg.style.backgroundImage = `url('images/background-light.jpg')`;
+        darkMode = false;
+        darkBtn.classList.remove('clicked');
+    }
+});
 
 // Event listeners to toggle the acoustic and distortion settings.
 

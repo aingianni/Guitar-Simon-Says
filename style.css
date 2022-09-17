@@ -9,7 +9,7 @@
 
 body {
     background: rgb(247, 247, 247);
-    background-image: url('images/background-test.jpg');
+    background-image: url('images/background-light.jpg');
     display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -21,32 +21,40 @@ body {
     position: absolute;
     width: 80px;
     left: 19%;
-    top: 5%;
+    top: 20%;
 }
 
 #classical {
     position: absolute;
     width: 80px;
     left: 19%;
-    top: 10%;
+    top: 25%;
 }
 
 #muted {
     position: absolute;
     width: 80px;
     left: 19%;
-    top: 15%;
+    top: 30%;
 }
 
 #clean {
     position: absolute;
     width: 80px;
     left: 19%;
-    top: 20%;
+    top: 35%;
 }
 
 #acoustic:hover, #classical:hover, #muted:hover, #clean:hover {
     left: 19.5%
+}
+
+#toggle-theme {
+    position: absolute;
+    top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    left: 18%;
 }
 
 #main-container {
