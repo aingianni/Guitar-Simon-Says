@@ -45,7 +45,7 @@ let darkMode = false;
 // Create two basic objects, one for player and one for computer.
 
 const computer = {
-    health: 100,
+    health: 10,
 }
 
 const player = {
@@ -177,6 +177,7 @@ darkBtn.addEventListener('click', (evt) => {
         document.getElementById('display-content').style.background = 'gray';
         document.getElementById('open-fret').style.background = 'gray';
         mainCont.style.boxShadow = 'rgba(255, 255, 255, 0.376) 0px 48px 100px 0px';
+        modalBox.style.backgroundColor = 'gray';
     } else {
         bodyBg.style.backgroundImage = `url('images/background-light.jpg')`;
         darkMode = false;
@@ -185,6 +186,7 @@ darkBtn.addEventListener('click', (evt) => {
         document.getElementById('display-content').style.background = 'white';
         document.getElementById('open-fret').style.background = 'white';
         mainCont.style.boxShadow = 'rgba(17, 12, 46, 0.358) 0px 48px 100px 0px';
+        modalBox.style.backgroundColor = 'white';
     }
 });
 
