@@ -2,11 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
-:root {
-    --main-box-light: rgba(17, 12, 46, 0.358);
-    --main-box-dark: rgba(255, 255, 255, 0.376);
-}
-
 body {
     background: rgb(247, 247, 247);
     background-image: url('images/background-light.jpg');
@@ -54,7 +49,7 @@ body {
     top: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    left: 18%;
+    left: 19%;
 }
 
 #main-container {

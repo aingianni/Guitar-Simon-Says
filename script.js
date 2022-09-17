@@ -172,6 +172,7 @@ darkBtn.addEventListener('click', (evt) => {
     if (!darkMode) {
         bodyBg.style.backgroundImage = `url('images/background-dark.jpg')`;
         darkMode = true;
+        evt.target.innerText = 'Light Mode';
         darkBtn.classList.add('clicked');
         mainCont.style.background = 'gray';
         document.getElementById('display-content').style.background = 'gray';
@@ -181,6 +182,7 @@ darkBtn.addEventListener('click', (evt) => {
     } else {
         bodyBg.style.backgroundImage = `url('images/background-light.jpg')`;
         darkMode = false;
+        evt.target.innerText = 'Dark Mode';
         darkBtn.classList.remove('clicked');
         mainCont.style.background = 'white';
         document.getElementById('display-content').style.background = 'white';
