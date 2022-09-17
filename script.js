@@ -11,6 +11,7 @@ const modal = document.getElementById('modal');
 const modalBox = document.getElementById('display-text');
 const darkBtn = document.getElementById('toggle-theme');
 const bodyBg = document.querySelector('body');
+const mainCont = document.getElementById('main-container');
 
 const guitarNotesLayout = [
     ['E4', 'F4', 'Gb4', 'G4', 'Ab4', 'A4', 'Bb4', 'B4', 'C5', 'Db5', 'D5', 'Eb5', 'E5'],
@@ -172,10 +173,18 @@ darkBtn.addEventListener('click', (evt) => {
         bodyBg.style.backgroundImage = `url('images/background-dark.jpg')`;
         darkMode = true;
         darkBtn.classList.add('clicked');
+        mainCont.style.background = 'gray';
+        document.getElementById('display-content').style.background = 'gray';
+        document.getElementById('open-fret').style.background = 'gray';
+        mainCont.style.boxShadow = 'rgba(255, 255, 255, 0.376) 0px 48px 100px 0px';
     } else {
         bodyBg.style.backgroundImage = `url('images/background-light.jpg')`;
         darkMode = false;
         darkBtn.classList.remove('clicked');
+        mainCont.style.background = 'white';
+        document.getElementById('display-content').style.background = 'white';
+        document.getElementById('open-fret').style.background = 'white';
+        mainCont.style.boxShadow = 'rgba(17, 12, 46, 0.358) 0px 48px 100px 0px';
     }
 });
 
@@ -204,7 +213,7 @@ document.getElementById('classical').addEventListener('click', (evt) => {
             btn.classList.remove('clicked');
         }
     });
-    compChoiceBtn.style.top = '11%';
+    compChoiceBtn.style.top = '17%';
 });
 
 document.getElementById('muted').addEventListener('click', (evt) => {

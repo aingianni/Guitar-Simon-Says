@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 :root {
-    --main-box-light: rgba(17, 12, 46, 0.15);
+    --main-box-light: rgba(17, 12, 46, 0.358);
     --main-box-dark: rgba(255, 255, 255, 0.376);
 }
 
@@ -76,7 +76,7 @@ body {
     align-items: center;
     height: 50vh;
     border-radius: 10px;
-    box-shadow: var(--main-box-light) 0px 25px 20px -20px;
+    box-shadow: rgba(17, 12, 46, 0.358) 0px 25px 20px -20px;
 }
 
 #display-content > img {
