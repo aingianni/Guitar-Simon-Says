@@ -1,5 +1,7 @@
 <h1>Guitar Simon Says</h1>
 
+[Project Link](https://aingianni.github.io/Guitar-Simon-Says/)
+
 <h3>How to Play</h3>
 <ul>
     <li>The computer has 100% health and so does the player</li>
